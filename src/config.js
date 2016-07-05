@@ -1,5 +1,6 @@
 require('babel-polyfill');
-
+import firebase from 'firebase';
+require('reactfire');
 const environment = {
   development: {
     isProduction: false
@@ -9,11 +10,20 @@ const environment = {
   }
 }[process.env.NODE_ENV || 'development'];
 
+const config = {
+  apiKey: 'AIzaSyAHEireJubcEePQ3ZvNOIToVkR6lrphPPY',
+  authDomain: 'kali-dev.firebaseapp.com',
+  databaseURL: 'https://kali-dev.firebaseio.com',
+  storageBucket: 'kali-dev.appspot.com',
+};
+// const firebaseRef = firebase.initializeApp(config);
+
 module.exports = Object.assign({
   host: process.env.HOST || 'localhost',
   port: process.env.PORT,
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
+  firebaseRef: firebase.initializeApp(config),
   app: {
     title: 'React Redux Example',
     description: 'All the modern best practices in one example.',

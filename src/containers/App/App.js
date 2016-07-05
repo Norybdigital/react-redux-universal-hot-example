@@ -77,30 +77,37 @@ export default class App extends Component {
 
           <Navbar.Collapse eventKey={0}>
             <Nav navbar>
-              {user && <LinkContainer to="/chat">
-                <NavItem eventKey={1}>Chat</NavItem>
-              </LinkContainer>}
-
-              <LinkContainer to="/widgets">
-                <NavItem eventKey={2}>Widgets</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/survey">
-                <NavItem eventKey={3}>Survey</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/about">
-                <NavItem eventKey={4}>About Us</NavItem>
-              </LinkContainer>
-
-              {!user &&
-              <LinkContainer to="/login">
-                <NavItem eventKey={5}>Login</NavItem>
-              </LinkContainer>}
-              {user &&
-              <LinkContainer to="/logout">
-                <NavItem eventKey={6} className="logout-link" onClick={this.handleLogout}>
-                  Logout
-                </NavItem>
-              </LinkContainer>}
+            {user && <LinkContainer to="/profile">
+              <NavItem eventKey={1}>Profile</NavItem>
+            </LinkContainer>}
+            {user && <LinkContainer to="/edit-profile">
+              <NavItem eventKey={2}>Edit</NavItem>
+            </LinkContainer>}
+            {user && <LinkContainer to="/create-channel">
+              <NavItem eventKey={3}>Create Channel</NavItem>
+            </LinkContainer>}
+            <LinkContainer to="/workshops">
+              <NavItem eventKey={4}>Workshops</NavItem>
+            </LinkContainer>}
+            <LinkContainer to="/contact">
+              <NavItem eventKey={5}>Contact</NavItem>
+            </LinkContainer>
+            <LinkContainer to ="/about">
+              <NavItem eventKey={6}>About</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <NavItem eventKey={7}>Login</NavItem>
+            </LinkContainer>}
+            {!user &&
+            <LinkContainer to="/register">
+              <NavItem eventKey={8}>Register</NavItem>
+            </LinkContainer>}
+            {user &&
+            <LinkContainer to="/logout">
+              <NavItem eventKey={9} className="logout-link" onClick={this.handleLogout}>
+                Logout
+              </NavItem>
+            </LinkContainer>}
             </Nav>
             {user &&
             <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
@@ -118,10 +125,7 @@ export default class App extends Component {
         <InfoBar/>
 
         <div className="well text-center">
-          Have questions? Ask for help <a
-          href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-          target="_blank">on Github</a> or in the <a
-          href="https://discord.gg/0ZcbPKXt5bZZb1Ko" target="_blank">#react-redux-universal</a> Discord channel.
+          This is a footer.
         </div>
       </div>
     );
